@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Resume Ranker</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #0f172a, #1e293b);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 60%;
+            margin: 50px auto;
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="file"] {
+            margin-top: 15px;
+        }
+
+        button {
+            background: linear-gradient(to right, #2563eb, #1d4ed8);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background: #0057cc;
+        }
+
+        .card {
+            background: #ffffff;
+            border : 1px solid #e5e7eb;
+            box-shadow : 0 2px 8px rgba(0,0,0,0.08);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .progress-bar {
+            background: #ddd;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress {
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            color: white;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>🚀 AI Resume Ranker</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+
+        <textarea name="job_desc" rows="5"
+        placeholder="Enter Job Description"></textarea>
+
+        <br><br>
+
+        <input type="file" name="resumes" multiple>
+
+        <br>
+
+        <button type="submit">Rank Resumes</button>
+
+    </form>
+
+    <h3>Results:</h3>
+
+    {% for name, score in scores %}
+
+    <div class="card">
+
+        <strong>{{name}}</strong>
+
+        <div class="progress-bar">
+
+            <div class="progress"
+            style="width: {{score}}%;">
+
+                {{score}}%
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+    <br>
+    <a href="/download">
+        <button>Download Report</button>
+    </a>
+
+</div>
+
+</body>
+</html>
