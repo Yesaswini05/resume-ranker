@@ -113,7 +113,7 @@ python app.py
 
 ## 👨‍💻 Author
 
-### Dheeraj Koneti
+### M Yesaswini
 
 📧 Passionate about AI, Full Stack Development, and Intelligent Automation Systems.
 
